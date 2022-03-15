@@ -1,11 +1,38 @@
+<script>
+  import { t, locale, locales } from "../i18n";
+  
+  // Create a locale specific timestamp
+  $: time = new Date().toLocaleDateString($locale, {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+</script>
+
 <div class="dropdown">
-    <label tabindex="0" class="m-1 btn">Click</label>
-    <ul tabindex="0" 
-        class={`p-2 shadow menu dropdown-content 
-        bg-base-100 rounded-box w-52`}
-    >
-      <li><a>Item 1</a></li>
-      <li><a>Item 2</a></li>
-    </ul>
-  </div>
+
+  
+  <main>
+    <p>
+      <select bind:value={$locale}>
+        {#each locales as l}
+          <option value={l}>{l}</option>
+        {/each}
+      </select>
+    </p>
+  
+    <h1>{$t("homepage.title")}!</h1>
+    <p>{@html $t("homepage.welcome", { name: "Jane Doe" })}!</p>
+    <p>{@html $t("homepage.time", { time })}!</p>
+  </main>
+</div>
+
+<style>
+  main {
+    max-width: 24rem;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+  }
+</style>
   
