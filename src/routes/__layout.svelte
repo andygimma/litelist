@@ -15,30 +15,28 @@
 <nav>
     <div class="navbar bg-base-100">
         <div class="flex-1">
-          <a class="btn btn-ghost normal-case text-xl">Litelist</a>
+          <a class="btn btn-ghost normal-case text-xl" href="/">Litelist</a>
         </div>
         <div class="flex-none">
           <ul class="menu menu-horizontal p-0">
             <li tabindex="0">
-              <a>
+              <a href="/about">
                 {$t("nav.about")}
                 <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
               </a>
               <ul class="p-2 bg-base-100">
-                <li><a>Who we are</a></li>
-                <li><a>What we do</a></li>
+                <li><a href="/who-we-are">Who we are</a></li>
+                <li><a href="/what-we-do">What we do</a></li>
               </ul>
             </li>
             <li>
-                <a>
-                    <select bind:value={$locale}>
-                        {#each locales as l}
+                <select bind:value={$locale}>
+                    {#each locales as l}
                         <option value={l}>{l}</option>
-                        {/each}
-                    </select>
-                </a>
+                    {/each}
+                </select>
             </li>
-            <li><a>{$t("nav.login")}</a></li>
+            <li><a href="/login">{$t("nav.login")}</a></li>
           </ul>
         </div>
       </div>
